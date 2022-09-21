@@ -8,7 +8,7 @@
         "lint": "tslint -p .",
         "tslint": "tslint",
         "build": "npm run clean && tsc -p . && tsc -p ./tsconfig.angular.json",
-        "clean": "rm -f rules/*.js rules/*.d.ts *.js *.d.ts",
+        "clean": "rimraf rules/*.js rules/*.d.ts *.js *.d.ts",
         "release": "ts-node resources/release.sh.ts"
     },
     "repository": {
@@ -40,13 +40,14 @@
     "homepage": "https://github.com/hmil/tslint-override#readme",
     "devDependencies": {
         "@types/inquirer": "0.0.42",
-        "@types/node": "^10.5.1",
-        "@types/shelljs": "^0.8.0",
-        "inquirer": "^6.0.0",
-        "shelljs": "^0.8.2",
-        "ts-node": "^7.0.0",
-        "tslint": "^5.10.0",
-        "tslint-language-service": "^0.9.9",
-        "typescript": "^2.9.2"
+        "@types/node": "^18.7.18",
+        "@types/shelljs": "^0.8.11",
+        "inquirer": "^6.5.2",
+        "rimraf": "^3.0.2",
+        "shelljs": "^0.8.5",
+        "ts-node": "^7.0.1",
+        "tslint": "^5.20.1",
+        "typescript": "^4.8.3",
+        "typescript-tslint-plugin": "^1.0.2"
     }
 }

@@ -8,7 +8,7 @@
             "es2015", "dom"
         ],
         "plugins": [
-            { "name": "tslint-language-service"}
+            { "name": "typescript-tslint-plugin"}
         ]
     },
     "include": [

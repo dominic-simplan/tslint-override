@@ -319,7 +319,7 @@ class Walker extends Lint.AbstractWalker<IOptions> {
     }
 
     private checkNodeAndFindDecorator(node: ts.ClassElement): ts.Decorator | undefined {
-        const decorators = node.decorators;
+        const decorators = ts.canHaveDecorators(node) ? ts.getDecorators(node) : null;
         if (decorators == null) {
             return;
         }
@@ -414,7 +414,7 @@ function fixRemoveOverrideKeyword(keyword: OverrideKeyword) {
 }
 
 function isStaticMember(node: ts.Node): boolean {
-    return (ts.getCombinedModifierFlags(node) & ts.ModifierFlags.Static) !== 0;
+    return ts.isPropertyDeclaration(node) && (ts.getCombinedModifierFlags(node) & ts.ModifierFlags.Static) !== 0;
 }
 
 function isJSDocTag(t: ts.Node): t is ts.JSDocTag {
