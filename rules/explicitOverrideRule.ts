@@ -413,8 +413,8 @@ function fixRemoveOverrideKeyword(keyword: OverrideKeyword) {
     return Lint.Replacement.deleteText(keyword.getStart(), keyword.getWidth());
 }
 
-function isStaticMember(node: ts.Node): boolean {
-    return ts.isPropertyDeclaration(node) && (ts.getCombinedModifierFlags(node) & ts.ModifierFlags.Static) !== 0;
+function isStaticMember(node: OverrideableElement): boolean {
+    return (ts.getCombinedModifierFlags(node) & ts.ModifierFlags.Static) !== 0;
 }
 
 function isJSDocTag(t: ts.Node): t is ts.JSDocTag {

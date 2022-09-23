@@ -359,7 +359,7 @@ function fixRemoveOverrideKeyword(keyword) {
     return Lint.Replacement.deleteText(keyword.getStart(), keyword.getWidth());
 }
 function isStaticMember(node) {
-    return ts.isPropertyDeclaration(node) && (ts.getCombinedModifierFlags(node) & ts.ModifierFlags.Static) !== 0;
+    return (ts.getCombinedModifierFlags(node) & ts.ModifierFlags.Static) !== 0;
 }
 function isJSDocTag(t) {
     return t.kind === ts.SyntaxKind.JSDocTag;
